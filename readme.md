@@ -4,7 +4,3 @@
 
 - A subscriber question
 - Some ideas around API tests
-
-## Notes
-
-Some notes
