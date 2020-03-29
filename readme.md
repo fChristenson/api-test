@@ -1,10 +1,9 @@
-# Node Demo
+# What should I test for in an API?
 
 ## What we will cover
 
-- 1
-- 2
-- 3
+- A subscriber question
+- Some ideas around API tests
 
 ## Notes
 
