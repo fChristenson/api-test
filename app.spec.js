@@ -11,6 +11,31 @@ describe("Api test", () => {
           .end((err, res) => {
             expect(err).toEqual(null);
             expect(Array.isArray(res.body)).toEqual(true);
+            expect(res.body.length).toEqual(3);
+            done();
+          })
+      });
+
+      it("should return the users after the offset", (done) => {
+        supertest(app).get("/api/v1/users?offset=1")
+          .expect(200)
+          .expect("Content-Type", /application\/json/)
+          .end((err, res) => {
+            expect(err).toEqual(null);
+            expect(Array.isArray(res.body)).toEqual(true);
+            expect(res.body.length).toEqual(2);
+            done();
+          })
+      });
+
+      it("should return the users within the limit", (done) => {
+        supertest(app).get("/api/v1/users?limit=1")
+          .expect(200)
+          .expect("Content-Type", /application\/json/)
+          .end((err, res) => {
+            expect(err).toEqual(null);
+            expect(Array.isArray(res.body)).toEqual(true);
+            expect(res.body.length).toEqual(1);
             done();
           })
       });

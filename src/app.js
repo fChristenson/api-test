@@ -17,7 +17,12 @@ const users = [
 ];
 
 app.get("/api/v1/users", (req, res) => {
-  res.json(users);
+  const { offset, limit } = req.query;
+
+  const start = offset ? parseInt(offset) : 0;
+  const end = limit ? parseInt(limit) + start : users.length;
+
+  res.json(users.slice(start, end));
 });
 
 app.use((req, res) => {
